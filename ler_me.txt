@@ -1,0 +1,20 @@
+projeto 03 - mnist com mlp e cnn (pytorch)
+
+dados: torchvision.datasets.MNIST (baixa sozinho na primeira vez)
+split: 10% do treino vira validacao, random_state=7, estratificado
+o teste oficial (10000) so entra na avaliacao final
+normalizacao: media e desvio dos pixels do treino, em [0, 1]
+
+como rodar:
+python -m venv .venv
+source .venv/bin/activate
+pip install torch==2.15.0 torchvision==0.29.2 --index-url https://download.pytorch.org/whl/cpu
+pip install -r requisitos.txt
+python explorar_dados.py
+python mlp.py
+python cnn.py
+python comparacao.py
+
+figuras/ e resultados/ saem depois de rodar
+otimizador: SGD, lr=0.01, momentum=0.9, 10 epocas, batch=128
+a ativacao do mlp e ReLU. a cnn segue o LeNet (conv, pool, conv, pool, lineares) tambem com ReLU
